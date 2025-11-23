@@ -1,0 +1,454 @@
+:root{
+    --c-accent: #fcd116;
+    --c-black: #000;
+    --c-gray: rgb(233, 233, 233);
+    --sans: "Plus Jakarta Sans", sans-serif;
+    --roman: "Merriweather", serif;
+}
+
+
+.react-datepicker__month-container{
+  z-index: 9999;
+
+}
+
+.react-datepicker{
+    border-bottom-left-radius: 0.25vh;
+    border-bottom-right-radius: 0.25vh;
+    box-shadow: rgba(50, 50, 93, 0.15) 0px 2px 5px -1px, rgba(0, 0, 0, 0.08) 0px 1px 3px -1px;
+    border: none;
+    z-index: 9999999999;
+    transform-style: preserve-3d; /* Esencial para que el 3D funcione */
+
+     /* ¡Aquí aplicamos la animación! */
+    animation: openWindowAero 0.3s;
+    overflow: hidden;
+    border-radius: 2.25vh;
+    transform-origin: center center;
+
+}
+
+.react-datepicker *{
+    font-family: var(--sans);
+    z-index: 9999999999;
+}
+
+.react-datepicker__month-container{
+
+  border-top-left-radius: 0.25vh;
+border-top-right-radius: 0.25vh;  
+overflow: hidden;
+}
+
+.react-datepicker__header {
+  border-top-left-radius: 0.25vh;
+border-top-right-radius: 0.25vh;  
+background: white;
+padding-top: 1rem;
+display: flex;
+justify-content: center;
+align-items: center;
+padding-bottom: 1rem;
+font-family: var(--roman);
+font-weight: 450;
+overflow: hidden;
+border-bottom: 1px solid rgba(0, 0, 0, 0.089);
+
+}
+
+.react-datepicker__header *{
+color: black;
+font-weight: 550;
+
+}
+
+.react-datepicker__navigation-icon{
+    top: 35%;
+
+}
+
+.react-datepicker__navigation-icon::before{
+color: rebeccapurple;
+border-right: 1.5px solid black;
+width: .5rem;
+height: .5rem;
+border-top: 1.5px solid black;
+}
+
+.react-datepicker__day {
+font-size: 2vh;
+ border-radius: 0.25vh;
+ transition-duration: 0.16s;
+}
+
+.react-datepicker__day:hover{
+ border-radius: 0.25vh;
+      
+       box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+       background: white;
+}
+
+.react-datepicker__day.react-datepicker__day--selected{
+    position: relative;
+    transition-duration: 0.16s;
+    background: var(--c-accent);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(213, 192, 0, 0.3) 0px 1px 3px -1px;
+    border-radius: 0.5vh;
+    color: var(--c-black);
+
+}
+
+.react-datepicker__day.react-datepicker__day--selected::before{
+    content: '';
+    transition-duration: 0.3s;
+    width: 105%;
+    animation: brillo 1s linear infinite;
+    height: 105%;
+    border:2px solid rgb(0, 0, 0);
+  
+    border-radius: 0.6vh;
+    background: transparent;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+
+
+}
+
+.input-container.flex{
+display: inline-flex;
+flex-wrap: wrap;
+justify-content: center;
+position: relative;
+align-items: center;
+padding-top: 1vh;
+margin-right: 2vw;
+
+}
+
+.react-datepicker__input-container{
+    position: relative;
+}
+
+.react-datepicker__input-container input{
+font-family: var(--sans);
+border: none;
+font-size: 1.8vh;
+display: flex;
+width: 18vw;
+outline: none;
+border: 1px solid #00000020;
+padding-left: 2vh;
+position: relative;
+z-index: 0;
+border-radius: 0.5vh;
+height: 3rem;
+}
+
+
+
+
+
+.react-datepicker__input-container input:hover{
+
+border: 1px solid var(--c-accent);
+}
+
+.input-container.flex label{
+position: absolute;
+top: 0;
+left: 1.8vh;
+z-index: 5;
+background: rgb(255, 255, 255);
+padding-left: 0.3rem;
+font-family: var(--sans);
+font-size: 1.8vh;
+color: #00000065;
+padding-right: 0.3rem;
+
+}
+
+.parent.form{
+    margin: auto;
+    display: block;
+    width: fit-content;
+    padding-top: 5vh;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10vh;
+}
+
+.parent.form h1{
+    display: block;
+    text-align: center;
+    font-family: var(--roman);
+margin-bottom: 1.4rem;
+
+}
+
+.react-datepicker__portal {
+  /* 1. Lo expandimos para que ocupe TODA la pantalla */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;  /* <-- Añadido */
+  bottom: 0; /* <-- Añadido */
+
+  /* 2. Añadimos el fondo oscuro semitransparente */
+  background-color: rgba(0, 0, 0, 0.5); /* <-- ¡La clave! */
+    backdrop-filter: blur(1vh);
+  /* 3. Centramos el calendario (tu animación seguirá funcionando) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* 4. Mantenemos tu z-index alto */
+  z-index: 999999999;
+}
+
+
+@keyframes brillo {
+    0%{
+        opacity: 0;
+         border:2px solid rgb(184, 0, 0);
+    }
+    50%{
+         border:2px solid rgb(0, 0, 0);
+        opacity: 1;
+    }
+    100%{
+         border:2px solid rgb(214, 150, 0);
+        opacity: 0;
+    }
+}
+
+
+.react-datepicker__day.react-datepicker__day--selected:hover{
+opacity: 0.5;
+    background: var(--c-accent);
+    border-radius: 0.5vh;
+    color: var(--c-black);
+}
+
+.react-datepicker__day.react-datepicker__day--keyboard-selected{
+    border-radius: 0.25vh;
+    transition-duration: 0.16s;
+     background: var(--c-accent);
+    color: var(--c-black);
+}
+
+@keyframes openWindowAero {
+  /* 0% (Inicio): Oculto, pequeño, y "lejos" */
+  0% {
+   transform: scaleX(0) scaleY(0.01);
+   filter: brightness(5);
+    filter: blur(2vh);
+ 
+  }
+
+
+  /* 100% (Final): Estado de reposo */
+  50% {
+      transform: scaleX(1) scaleY(0.01);
+       filter: brightness(5);
+        filter: blur(2vh);
+  }
+
+  100%{
+transform: scaleX(1) scaleY(1);
+   filter: brightness(0);
+   filter: blur(0);
+
+  }
+}
+
+/* DETECTAR MOVIL */
+
+@media (pointer:none), (pointer:coarse) {
+
+
+    @keyframes openWindowAero {
+  /* 0% (Inicio): Oculto, pequeño, y "lejos" */
+  0%{
+   transform: translateY(-50vh) scale(0.925);
+  }
+
+
+  100%{
+     transform: translateY(0vh) scale(0.925);
+
+  }
+}
+
+.parent.parent.form{
+margin: auto;
+width: calc(100% - 2.75rem);
+}
+
+.input-container.flex{
+display: block;
+margin-top: 3vh;
+margin-right: 0vh;
+
+}
+
+.input-container.flex input{
+width: 100%;
+font-size: 1.1rem;
+height: 3.5rem;
+
+}
+
+
+    .react-datepicker__month-container{
+    border-radius: 9vh;
+
+}
+
+.react-datepicker{
+border-bottom-left-radius: 0.25vh;
+border-bottom-right-radius: 0.25vh;
+ box-shadow: rgba(50, 50, 93, 0.15) 0px 2px 5px -1px, rgba(0, 0, 0, 0.08) 0px 1px 3px -1px;
+ border: none;
+transform-style: preserve-3d; /* Esencial para que el 3D funcione */
+
+  /* ¡Aquí aplicamos la animación! */
+  animation: openWindowAero 0.3s;
+  transform-origin: center center;
+    position: fixed;
+  top: 0;
+
+  padding-bottom: 3vh;
+}
+
+.react-datepicker *{
+    font-family: var(--sans);
+
+}
+
+.react-datepicker__month-container{
+
+  border-top-left-radius: 0.25vh;
+border-top-right-radius: 0.25vh;  
+overflow: hidden;
+}
+
+.react-datepicker__header {
+  border-top-left-radius: 0.25vh;
+border-top-right-radius: 0.25vh;  
+background: white;
+padding-top: 1rem;
+display: flex;
+justify-content: center;
+align-items: center;
+padding-bottom: 1rem;
+font-family: var(--roman);
+font-weight: 450;
+overflow: hidden;
+border-bottom: 1px solid rgba(0, 0, 0, 0.089);
+
+}
+
+.react-datepicker__header *{
+color: black;
+font-weight: 600;
+font-size: 1vh;
+
+}
+
+.react-datepicker__navigation-icon{
+    top: 35%;
+
+}
+
+.react-datepicker__navigation-icon::before{
+color: rebeccapurple;
+border-right: 1.5px solid black;
+width: .5rem;
+height: .5rem;
+border-top: 1.5px solid black;
+}
+
+.react-datepicker__day {
+font-size: 2.2vh;
+ border-radius: 0.21vh;
+ padding: 0.4vh;
+ transition-duration: 0.16s;
+}
+
+.react-datepicker__day:hover{
+ border-radius: 0.25vh;
+      
+       box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+       background: white;
+}
+
+.react-datepicker__day.react-datepicker__day--selected{
+    position: relative;
+    transition-duration: 0.16s;
+    background: var(--c-accent);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(213, 192, 0, 0.3) 0px 1px 3px -1px;
+    border-radius: 0.5vh;
+    color: var(--c-black);
+
+}
+
+.react-datepicker__day.react-datepicker__day--selected::before{
+    content: '';
+    transition-duration: 0.3s;
+    width: 105%;
+    animation: brillo 1s linear infinite;
+    height: 105%;
+    border:2px solid rgb(0, 0, 0);
+  
+    border-radius: 0.6vh;
+    background: transparent;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+
+
+}
+
+
+@keyframes brillo {
+    0%{
+        opacity: 0;
+         border:2px solid rgb(184, 0, 0);
+    }
+    50%{
+         border:2px solid rgb(0, 0, 0);
+        opacity: 1;
+    }
+    100%{
+         border:2px solid rgb(214, 150, 0);
+        opacity: 0;
+    }
+}
+
+
+.react-datepicker__day.react-datepicker__day--selected:hover{
+opacity: 0.5;
+    background: var(--c-accent);
+    border-radius: 0.5vh;
+    color: var(--c-black);
+}
+
+.react-datepicker__day.react-datepicker__day--keyboard-selected{
+    border-radius: 0.25vh;
+    transition-duration: 0.16s;
+     background: var(--c-accent);
+    color: var(--c-black);
+}
+
+
+.react-datepicker__portal .react-datepicker{
+transform: scale(0.925);
+border-radius: 2.5vh;
+overflow: hidden;
+}
+
+
+}
