@@ -2,7 +2,7 @@
     --c-accent: #fcd116;
     --c-black: #000;
     --c-gray: rgb(233, 233, 233);
-    --sans: "Plus Jakarta Sans", sans-serif;
+    --sans: "Google Sans Flex", sans-serif;
     --roman: "Merriweather", serif;
 }
 
@@ -139,6 +139,7 @@ font-size: 1.8vh;
 display: flex;
 width: 18vw;
 outline: none;
+font-weight: 450;
 border: 1px solid #00000020;
 padding-left: 2vh;
 position: relative;
@@ -163,6 +164,8 @@ left: 1.8vh;
 z-index: 5;
 background: rgb(255, 255, 255);
 padding-left: 0.3rem;
+
+font-weight: 500;
 font-family: var(--sans);
 font-size: 1.8vh;
 color: #00000065;
@@ -183,7 +186,7 @@ padding-right: 0.3rem;
 .parent.form h1{
     display: block;
     text-align: center;
-    font-family: var(--roman);
+    font-family: var(--sans);
 margin-bottom: 1.4rem;
 
 }
