@@ -49,12 +49,12 @@ export default function ReservaPopup() {
             <div className="inputs"
            
             >
-                <div className="input-container hiddenmobile">
+                <div className="input-container">
                        <label htmlFor='entrada'>Fecha de entrada</label>
                     <input type='date' name='entradaInput' id='entradaInput' />
                     </div>
 
-                 <div className="input-container hiddenmobile">
+                 <div className="input-container">
                        <label htmlFor='salida'>Fecha de salida</label>
                     <input type='date' name='salidaInput' id='salidaInput' />
                     </div>

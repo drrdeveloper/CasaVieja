@@ -21,7 +21,8 @@
     transform-style: preserve-3d; /* Esencial para que el 3D funcione */
 
      /* ¡Aquí aplicamos la animación! */
-    animation: openWindowAero 0.3s;
+     animation: openWindow 0.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    perspective: 1200px;
     overflow: hidden;
     border-radius: 2.25vh;
     transform-origin: center center;
@@ -238,31 +239,24 @@ opacity: 0.5;
     color: var(--c-black);
 }
 
-@keyframes openWindowAero {
-  /* 0% (Inicio): Oculto, pequeño, y "lejos" */
+@keyframes openWindow {
   0% {
-   transform: scaleX(0) scaleY(0.01);
-   filter: brightness(5);
-    filter: blur(2vh);
- 
+      opacity: 0;
+      transform: 
+          scale(0.7)            /* Empieza pequeño */
+          translateZ(-200px)    /* Empieza lejos (profundidad) */
+          rotateX(15deg)        /* Empieza inclinado hacia atrás */
+          translateY(50px);     /* Empieza un poco más abajo */
   }
-
-
-  /* 100% (Final): Estado de reposo */
-  50% {
-      transform: scaleX(1) scaleY(0.01);
-       filter: brightness(5);
-        filter: blur(2vh);
-  }
-
-  100%{
-transform: scaleX(1) scaleY(1);
-   filter: brightness(0);
-   filter: blur(0);
-
+  100% {
+      opacity: 1;
+      transform: 
+          scale(1) 
+          translateZ(0) 
+          rotateX(0deg) 
+          translateY(0);
   }
 }
-
 /* DETECTAR MOVIL */
 
 @media (pointer:none), (pointer:coarse) {
@@ -315,10 +309,10 @@ transform-style: preserve-3d; /* Esencial para que el 3D funcione */
 
   /* ¡Aquí aplicamos la animación! */
   animation: openWindowAero 0.3s;
-  transform-origin: center center;
     position: fixed;
+    transform-origin: center center;
   top: 0;
-
+  perspective: 1200px;
   padding-bottom: 3vh;
 }
 

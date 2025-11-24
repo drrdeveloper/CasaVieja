@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -11,7 +11,7 @@
     --c-accent: #fcd116;
     --c-black: #000;
     --c-gray: rgb(233, 233, 233);
-    --sans: "Plus Jakarta Sans", sans-serif;
+    --sans: "Google Sans Flex", sans-serif;
     --roman: "Merriweather", serif;
 }
 
@@ -68,7 +68,7 @@ display: flex;
 font-family: var(--sans);
 border: 1px solid var(--c-accent);
 color: var(--c-black);
-font-size: 2.11vh;
+font-size: 1.1rem;
 justify-content: center;
 align-items: center;
 font-weight: 500;
@@ -525,7 +525,7 @@ padding: 4vh;
 .reservapopup h3{
 color: var(--c-black);
 display: block;
-margin-bottom: 5vh;
+margin-bottom: 5rem;
 
 }
 
@@ -556,6 +556,11 @@ color: var(--c-black);
 background: var(--c-accent);
 }
 
+.reservapopup .input-container{
+    margin-bottom: 4.5vh;
+
+}
+
 .reservapopup .input-container input{
     transition-duration: 0.18s;
 display: block;
@@ -565,7 +570,7 @@ padding-left: 1.5vh;
 font-family: var(--sans);
 border-bottom: 0px solid transparent;
 font-size: 1.8vh;
-font-weight: 550;
+font-weight: 400;
 margin-bottom: 2.5vh;
 border: none;
 outline: none;
@@ -585,8 +590,12 @@ font-family: var(--sans);
 font-size: 1.9vh;
 margin-bottom: 1vh;
 display: block;
-font-weight: 600;
-
+font-weight: 500;
+position: absolute;
+margin-top: -.8rem;
+background: white;
+margin-left: 0.8vh;
+padding: 0rem .5rem 0rem .5rem;
 
 }
 
@@ -640,16 +649,21 @@ align-items: center;
 
 .bookingform.tabs .tab{
 font-family: var(--sans);
+display: flex;
+align-items: center;
 color: var(--c-black);
-border-bottom: 2px solid var(--c-black);
+border: none;
+border-radius: .8rem;
+box-shadow: rgba(14, 63, 126, 0.06) 0px 0px 0px 1px, rgba(42, 51, 70, 0.03) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 2px 2px -1px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.03) 0px 5px 5px -2.5px, rgba(42, 51, 70, 0.03) 0px 10px 10px -5px, rgba(42, 51, 70, 0.03) 0px 24px 24px -8px;
 font-weight: 560;
-height: 5vh;
-margin: 0vh 3vh 0vh 3vh;
+margin: 0vh 2vh 0vh 2vh;
+padding: .85rem;
 
 }
 
 .bookingform.tabs .tab.active{
-color: var(--c-accent);
+color: var(--c-black);
+background: var(--c-accent);
 border-bottom: 2px solid var(--c-accent);
 
 
@@ -709,6 +723,25 @@ justify-content: left;
 
 }
 
+/* RESERVA POPUP */
+
+.reservapopup{
+    display: block;
+    position: absolute;
+    right: 0vw;
+    width: calc(100% - 8vh);
+    bottom: -35vh;
+    border-radius: 2.25vh;
+background: white;
+padding: 4vh;
+
+}
+
+.reservapopup h3{
+font-size: 3.54vh;
+
+}
+
 
 /* CUERPO */
 
@@ -721,6 +754,11 @@ display: flex;
 align-items: center;
 height: calc(100vh - 9vh);
 background: rgba(0, 0, 0, 0.42);
+}
+
+.header.small{
+margin-bottom: 3vh;
+box-shadow: rgba(0, 0, 0, 0.15) 0px 24px 25px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.1) 0px 3px 4px, rgba(0, 0, 0, 0.1) 0px 10px 12px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 /* FORMULARIO */
@@ -737,7 +775,7 @@ height: calc(100vh - 10vh);
 display: flex;
 align-items: center ;
 margin: auto;
-margin-top: 3.75vh;
+margin-top: 6.75vh;
 padding-left: 1rem;
 padding-right: .8rem;
 width: 100%;
@@ -746,8 +784,10 @@ border-radius: 99vh;
 background: var(--c-black);
 color: white;
 box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-font-size: 2.2vh;
-
+font-size: 2.1vh;
+font-weight: 500;
+padding-top: 2vh;
+padding-bottom: 2vh;
 
 }
 
@@ -755,7 +795,6 @@ font-size: 2.2vh;
     margin-left: 3vh;
     transform: none;
     display: flex;
-    border: 1px solid red;
     font-size: 2.25vh;
 }
 
@@ -832,10 +871,11 @@ display: none;
 
 .bookingform.tabs .tab.active{
 color: var(--c-black);
-border-bottom: 2px solid var(--c-black);
 display: flex;
-font-size: 2.8vh;
-height: 6vh;
+font-size: 2vh;
+padding: 2vh;
+justify-content: center;
+width: calc(100% - 4vh);
 
 
 }
