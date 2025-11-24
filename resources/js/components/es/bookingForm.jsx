@@ -28,6 +28,7 @@ export function Disponibilidad(){
 
     return(
         <div className="parent form">
+          <div className="loader centered small"></div>
             <h1>Consulta tu Disponibilidad</h1>
             <div className="input-container flex">
         <label htmlFor="fechaEntrada">Fecha de entrada</label>

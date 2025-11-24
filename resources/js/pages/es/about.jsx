@@ -11,7 +11,6 @@ export default function Nosotros() {
 
             <div className="content">
             <h1>Sobre Nosotros</h1>
-            <h3>Solicita tu reserva ahora</h3>
             </div>
 
             <div className="bg">
